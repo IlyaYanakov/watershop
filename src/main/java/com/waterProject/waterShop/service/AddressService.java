@@ -1,4 +1,4 @@
 package com.waterProject.waterShop.service;
 
-public class AddressService {
+public interface AddressService {
 }
