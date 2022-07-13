@@ -44,5 +44,4 @@ public class Addresses extends PersistentObject {
 
     @Column(name = "withLift")
     Boolean withLift;
-
 }
