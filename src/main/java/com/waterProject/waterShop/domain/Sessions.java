@@ -12,6 +12,7 @@ import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
+
 @Entity
 @Setter
 @Getter
@@ -19,6 +20,12 @@ import java.util.Date;
 
 @Table(name = "sessions" )
 public class Sessions extends PersistentObject {
+
+    @Column(name = "loginDate")
+    Date loginDate;
+
+    @Column(name = "loginDate")
+    Date loginDate;
 
     @Column(name = "loginDate")
     Date loginDate;
