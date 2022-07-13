@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Table(name = "countries")
 @Entity
-public class Countries extends PersistentObject {
+public class Country extends PersistentObject {
 
     @Column(name = "name")
     String name;

@@ -4,9 +4,7 @@ import com.waterProject.waterShop.domain.base.PersistentObject;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Setter
 @Getter
@@ -16,7 +14,7 @@ import javax.persistence.Table;
 @Entity
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Addresses extends PersistentObject {
+public class Address extends PersistentObject {
 
     @Column(name = "latitude")
     Double latitude;
@@ -24,11 +22,13 @@ public class Addresses extends PersistentObject {
     @Column(name = "longitude")
     Double longitude;
 
-    @Column(name = "id_city")
-    Integer cityId;
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    City city;
 
-    @Column(name = "id_user")
-    Integer userId;
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    User user;
 
     @Column(name = "street")
     String street;

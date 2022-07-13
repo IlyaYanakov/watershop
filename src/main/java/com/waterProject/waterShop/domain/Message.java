@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Table(name = "messages")
 @Entity
-public class Messages extends PersistentObject {
+public class Message extends PersistentObject {
 
     @Column(name = "id_from")
     Integer fromId;

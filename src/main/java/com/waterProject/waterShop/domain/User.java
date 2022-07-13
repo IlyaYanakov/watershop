@@ -3,15 +3,13 @@ package com.waterProject.waterShop.domain;
 
 import com.waterProject.waterShop.domain.base.PersistentObject;
 import com.waterProject.waterShop.domain.enums.UserType;
-import liquibase.pro.packaged.S;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.apache.tomcat.jni.Address;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Setter
 @Getter
@@ -19,15 +17,13 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @Table(name = "users")
 @Entity
-public class Users extends PersistentObject {
+public class User extends PersistentObject {
 
-    @Column(name = "id_city")
-    Integer cityId;
+    @Column(name = "type")
+    @Enumerated(EnumType.STRING)
+    UserType type;
 
-    @Column(name = "user_type")
-    UserType userType;
-
-    @Column(name = "fio")
+    @Column(name = "full_name")
     String fullName;
 
     @Column(name = "login")
@@ -41,6 +37,14 @@ public class Users extends PersistentObject {
 
     @Column(name = "phone_number")
     String phoneNumber;
+
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    City city;
+
+    @ManyToOne
+    @JoinColumn(name = "address_id")
+    Address address;
 
 
 }

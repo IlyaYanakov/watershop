@@ -1,8 +1,7 @@
 package com.waterProject.waterShop.repository;
 
-import com.waterProject.waterShop.domain.Countries;
-import liquibase.change.core.LoadDataChange;
+import com.waterProject.waterShop.domain.Country;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CountriesRepository extends JpaRepository<Countries, Long> {
+public interface CountriesRepository extends JpaRepository<Country, Long> {
 }
