@@ -2,10 +2,7 @@ package com.waterProject.waterShop.domain;
 
 
 import com.waterProject.waterShop.domain.base.PersistentObject;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.Column;
@@ -18,7 +15,8 @@ import java.util.Date;
 @Entity
 @Setter
 @Getter
-@FieldDefaults
+@FieldDefaults(level = AccessLevel.PRIVATE)
+
 @Table(name = "sessions" )
 public class Sessions extends PersistentObject {
 
