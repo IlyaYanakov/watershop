@@ -1,6 +1,7 @@
 package com.waterProject.waterShop.domain;
 
 import com.waterProject.waterShop.domain.base.PersistentObject;
+import com.waterProject.waterShop.domain.enums.MessageType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,9 @@ public class Messages extends PersistentObject {
 
     @Column (name = "content")
     String content;
+
+    @Column(name = "content_type")
+    MessageType contentType;
 
 
 }
