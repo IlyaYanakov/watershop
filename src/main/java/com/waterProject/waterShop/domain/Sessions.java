@@ -24,12 +24,6 @@ public class Sessions extends PersistentObject {
     @Column(name = "loginDate")
     Date loginDate;
 
-    @Column(name = "loginDate")
-    Date loginDate;
-
-    @Column(name = "loginDate")
-    Date loginDate;
-
     @Column(name = "logout_date")
     Date logoutDate;
 
