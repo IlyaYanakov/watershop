@@ -11,7 +11,7 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateMessagesDto {
+public class CreateMessageDto {
     Integer fromId;
     Integer toId;
     String content;

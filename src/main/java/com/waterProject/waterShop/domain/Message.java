@@ -7,9 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Setter
 @Getter
@@ -19,10 +17,12 @@ import javax.persistence.Table;
 @Entity
 public class Message extends PersistentObject {
 
-    @Column(name = "id_from")
+    @ManyToOne
+    @JoinColumn(name = "id_from")
     Integer fromId;
 
-    @Column(name = "id_to")
+    @ManyToOne
+    @JoinColumn(name = "id_to")
     Integer toId;
 
     @Column (name = "content")

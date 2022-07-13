@@ -1,6 +1,6 @@
 package com.waterProject.waterShop.dto.response;
 
-import com.waterProject.waterShop.domain.enums.MessageType;
+import com.waterProject.waterShop.domain.Country;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,12 +8,9 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-
-public class MessagesDto {
-    Integer fromId;
-    Integer toId;
-    String content;
-    MessageType contentType;
+@NoArgsConstructor
+public class CityDto {
+    String name;
+    Country country;
 }
