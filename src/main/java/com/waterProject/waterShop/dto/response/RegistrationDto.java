@@ -1,16 +1,16 @@
 package com.waterProject.waterShop.dto.response;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.FieldDefaults;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-
-public class CountryDto {
-    Long id;
-    String name;
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class RegistrationDto {
+    String login;
+    String password;
 }

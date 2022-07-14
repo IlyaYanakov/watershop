@@ -1,5 +1,7 @@
 package com.waterProject.waterShop.dto.request;
 
+import com.waterProject.waterShop.domain.User;
+import com.waterProject.waterShop.dto.response.CityDto;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,13 +12,14 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CreateAddressDto {
-        String latitude;
-        String longitude;
-        Long cityId;
+        Float latitude;
+        Float longitude;
+        CityDto city;
         String street;
         String house;
-        String flat;
+        String floor;
+        User user;
+        Integer level;
         boolean elevator;
-        Long userId;
 
 }

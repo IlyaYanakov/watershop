@@ -1,5 +1,6 @@
 package com.waterProject.waterShop.dto.request;
 
+import com.waterProject.waterShop.domain.User;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,6 +16,6 @@ import java.util.Date;
 public class CreateSessionDto {
     Date loginDate;
     Date logoutDate;
-    Integer userId;
+    User user;
     String token;
 }

@@ -1,6 +1,7 @@
 package com.waterProject.waterShop.service;
 
 import com.waterProject.waterShop.dto.request.CreateUserDto;
+import com.waterProject.waterShop.dto.response.RegistrationDto;
 import com.waterProject.waterShop.dto.response.SessionDto;
 import com.waterProject.waterShop.dto.response.UserDto;
 
@@ -22,7 +23,7 @@ public interface UserService  {
 
     Long createActivationCode(Long userId); //??
 
-   // void create(RegistrationDto user);
+    void create(RegistrationDto user);
 
     List<UserDto> getAll();
 

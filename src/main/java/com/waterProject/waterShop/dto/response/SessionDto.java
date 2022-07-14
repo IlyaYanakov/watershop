@@ -14,6 +14,8 @@ import java.util.Date;
 @AllArgsConstructor
 
 public class SessionDto {
+
+    Long id;
     Date loginDate;
     Date logoutDate;
     User user;

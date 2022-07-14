@@ -17,10 +17,10 @@ import javax.persistence.*;
 public class Address extends PersistentObject {
 
     @Column(name = "latitude")
-    Double latitude;
+    Float latitude;
 
     @Column(name = "longitude")
-    Double longitude;
+    Float longitude;
 
     @ManyToOne
     @JoinColumn(name = "city_id")
