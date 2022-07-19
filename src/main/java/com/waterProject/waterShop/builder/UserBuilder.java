@@ -8,6 +8,7 @@ import com.waterProject.waterShop.dto.response.RegistrationDto;
 import com.waterProject.waterShop.dto.response.UserDto;
 
 public interface UserBuilder {
+
     UserDto build(User user);
 
     User build(CreateUserDto request,
@@ -19,5 +20,5 @@ public interface UserBuilder {
                 City city,
                 Address address);
 
-    User regBuild(RegistrationDto request);
+     User regBuild(RegistrationDto request);
 }

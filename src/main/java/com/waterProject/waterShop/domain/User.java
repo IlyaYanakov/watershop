@@ -1,21 +1,20 @@
 package com.waterProject.waterShop.domain;
 
-
 import com.waterProject.waterShop.domain.base.PersistentObject;
 import com.waterProject.waterShop.domain.enums.UserType;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 
-@Setter
 @Getter
+@Setter
+@Entity
+@Builder
+@Table(name = "users")
+@FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "users")
-@Entity
 public class User extends PersistentObject {
 
     @Column(name = "type")
@@ -31,19 +30,21 @@ public class User extends PersistentObject {
     @Column(name = "password")
     String password;
 
-    @Column(name = "email")
-    String email;
+//    @Column(name = "email")
+//    String email;
 
     @Column(name = "phone_number")
     String phoneNumber;
 
-    @ManyToOne
-    @JoinColumn(name = "city_id")
-    City city;
+//    @ManyToOne
+//    @JoinColumn(name = "city_id")
+//    City city;
 
-    @ManyToOne
-    @JoinColumn(name = "address_id")
-    Address address;
+//    @ManyToOne
+//    @JoinColumn(name = "address_id")
+//    Address address;
+
+
 
 
 }

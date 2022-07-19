@@ -10,10 +10,10 @@ import com.waterProject.waterShop.dto.response.AddressDto;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springdoc.core.AbstractRequestService;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
 
 import java.util.Date;
 
@@ -22,10 +22,11 @@ import java.util.Date;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @RequiredArgsConstructor
 public class AddressBuilderImpl implements AddressBuilder {
+
+    CityBuilder cityBuilder;
+
     @Override
     public AddressDto build(Address address) {
-        CityBuilder cityBuilder = null;
-
         return AddressDto.builder()
                 .id(address.getId())
                 .latitude(address.getLatitude())
@@ -33,14 +34,10 @@ public class AddressBuilderImpl implements AddressBuilder {
                 .city(cityBuilder.build(address.getCity()))
                 .street(address.getStreet())
                 .house(address.getHouse())
+                .flat(address.getFlat())
                 .level(address.getLevel())
-                .elevator(address.getWithLift())
-                .floor(address.getFloor())
-                .user(address.getUser())
+                .elevator(address.isElevator())
                 .build();
-
-
-
     }
 
     @Override
@@ -53,13 +50,12 @@ public class AddressBuilderImpl implements AddressBuilder {
         address.setCity(city);
         address.setStreet(request.getStreet());
         address.setHouse(request.getHouse());
+        address.setFlat(request.getFlat());
         address.setLevel(request.getLevel());
-        address.setWithLift(request.isElevator());
-        address.setFloor(request.getFloor());
-        address.setUser(request.getUser());
-        address.setUpdatedAt(new Date());
+        address.setElevator(request.isElevator());
+        address.setUser(user);
+        address.setCreatedAt(new Date());
         return address;
-
     }
 
     @Override
@@ -72,9 +68,9 @@ public class AddressBuilderImpl implements AddressBuilder {
         address.setCity(city);
         address.setStreet(request.getStreet());
         address.setHouse(request.getHouse());
-        address.setFloor(request.getFloor());
+        address.setFlat(request.getFlat());
         address.setLevel(request.getLevel());
-        address.setWithLift(request.isElevator());
+        address.setElevator(request.isElevator());
         address.setUser(user);
         address.setUpdatedAt(new Date());
     }

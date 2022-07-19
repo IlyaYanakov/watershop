@@ -1,7 +1,5 @@
 package com.waterProject.waterShop.dto.response;
 
-import com.waterProject.waterShop.domain.User;
-import liquibase.pro.packaged.A;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,16 +9,15 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class AddressDto {
     Long id;
-    Float latitude;
-    Float longitude;
+    String latitude;
+    String longitude;
     CityDto city;
     String street;
     String house;
-    String floor;
-    User user;
-    Integer level;
+    String flat;
+    String level;
     boolean elevator;
+
 }
