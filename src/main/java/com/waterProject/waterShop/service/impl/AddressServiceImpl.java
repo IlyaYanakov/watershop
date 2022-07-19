@@ -2,6 +2,7 @@ package com.waterProject.waterShop.service.impl;
 
 import com.waterProject.waterShop.domain.Address;
 import com.waterProject.waterShop.dto.request.CreateAddressDto;
+import com.waterProject.waterShop.dto.response.AddressDto;
 import com.waterProject.waterShop.service.AddressService;
 
 import java.util.List;
@@ -14,6 +15,11 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public List<Address> viewAllAddress() {
+        return null;
+    }
+
+    @Override
+    public AddressDto getById(Long id) {
         return null;
     }
 
