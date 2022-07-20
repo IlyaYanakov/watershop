@@ -1,8 +1,8 @@
-package com.waterProject.waterShop.controllers;
+package com.waterProject.waterShop.controller;
 
 import com.waterProject.waterShop.annotation.BaseApiResponse;
 import com.waterProject.waterShop.annotation.BaseApiResponseEmpty;
-import com.waterProject.waterShop.controllers.base.AuthorizationController;
+import com.waterProject.waterShop.controller.base.AuthorizationController;
 import com.waterProject.waterShop.dto.request.CreateCityDto;
 import com.waterProject.waterShop.dto.response.CityDto;
 import com.waterProject.waterShop.service.CityService;

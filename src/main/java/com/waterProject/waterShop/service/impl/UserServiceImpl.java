@@ -1,10 +1,8 @@
 package com.waterProject.waterShop.service.impl;
 
 import com.waterProject.waterShop.builder.UserBuilder;
-import com.waterProject.waterShop.domain.ApproveCode;
 import com.waterProject.waterShop.domain.User;
 import com.waterProject.waterShop.dto.response.UserDto;
-import com.waterProject.waterShop.repository.ApproveCodeRepository;
 import com.waterProject.waterShop.repository.UserRepository;
 import com.waterProject.waterShop.service.UserService;
 import lombok.AccessLevel;
@@ -53,19 +51,18 @@ public class UserServiceImpl implements UserService {
         }
         return userDtoList;
     }
+    @Override
+    public void deleteById(Long id) {
+        Optional<User> userOpt = userRepository.findById(id);
+        if (userOpt.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+        //  Optional<ApproveCode> approveCodeOpt = approveCodeRepository.
+          //      findFirstByNumber(userOpt.get().getPhoneNumber());
+       // if (approveCodeOpt.isEmpty()){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+       // approveCodeRepository.deleteById(approveCodeOpt.get().getId());
+        //userRepository.deleteById(id);
 
-//    @Override
-//    public void deleteById(Long id) {
-//        Optional<User> userOpt = userRepository.findById(id);
-//        if (userOpt.isEmpty()) {
-//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-//        }
-//        Optional<ApproveCode> approveCodeOpt = approveCodeRepository.
-//                findFirstByNumber(userOpt.get().getPhoneNumber());
-//        if (approveCodeOpt.isEmpty()){
-//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-//        }
-//        approveCodeRepository.deleteById(approveCodeOpt.get().getId());
-//        userRepository.deleteById(id);
-//    }
 }
