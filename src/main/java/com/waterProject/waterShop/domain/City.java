@@ -1,20 +1,19 @@
 package com.waterProject.waterShop.domain;
 
 import com.waterProject.waterShop.domain.base.PersistentObject;
-import lombok.AllArgsConstructor;
+import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
-
-@Setter
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@Table(name = "city")
+@Setter
 @Entity
+@Table(name = "city")
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class City extends PersistentObject {
+
     @Column(name = "name")
     String name;
 

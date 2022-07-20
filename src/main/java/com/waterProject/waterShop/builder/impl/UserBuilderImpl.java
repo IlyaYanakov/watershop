@@ -1,7 +1,5 @@
 package com.waterProject.waterShop.builder.impl;
 
-import com.waterProject.waterShop.builder.AddressBuilder;
-import com.waterProject.waterShop.builder.CityBuilder;
 import com.waterProject.waterShop.builder.UserBuilder;
 import com.waterProject.waterShop.domain.Address;
 import com.waterProject.waterShop.domain.City;
@@ -23,11 +21,10 @@ import java.util.Date;
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @RequiredArgsConstructor
-
 public class UserBuilderImpl implements UserBuilder {
 
-    CityBuilder cityBuilder;
-    AddressBuilder addressBuilder;
+//    CityBuilder cityBuilder;
+//    AddressBuilder addressBuilder;
 
     @Override
     public UserDto build(User user) {
@@ -37,38 +34,38 @@ public class UserBuilderImpl implements UserBuilder {
                 .fullName(user.getFullName())
                 .login(user.getLogin())
                 .password(user.getPassword())
-                .email(user.getEmail())
+//                .email(user.getEmail())
                 .phoneNumber(user.getPhoneNumber())
-               // .city(cityBuilder.build(user.getCity()))
-                //.address(addressBuilder.build(user.getAddress()))
+//                .city(cityBuilder.build(user.getCity()))
+//                .address(addressBuilder.build(user.getAddress()))
                 .build();
     }
 
     @Override
     public User build(CreateUserDto request, City city, Address address) {
         User user = new User();
-        user.setType(request.getUserType());
+        user.setType(request.getType());
         user.setFullName(request.getFullName());
         user.setLogin(request.getLogin());
         user.setPassword(request.getPassword());
-        user.setEmail(request.getEmail());
+//        user.setEmail(request.getEmail());
         user.setPhoneNumber(request.getPhoneNumber());
-        user.setCity(city);
-        user.setAddress(address);
+//        user.setCity(city);
+//        user.setAddress(address);
         user.setCreatedAt(new Date());
         return user;
     }
 
     @Override
     public void update(User user, CreateUserDto request, City city, Address address) {
-        user.setType(request.getUserType());
+        user.setType(request.getType());
         user.setFullName(request.getFullName());
         user.setLogin(request.getLogin());
         user.setPassword(request.getPassword());
-        user.setEmail(request.getEmail());
+//        user.setEmail(request.getEmail());
         user.setPhoneNumber(request.getPhoneNumber());
-        user.setCity(city);
-        user.setAddress(address);
+//        user.setCity(city);
+//        user.setAddress(address);
         user.setUpdatedAt(new Date());
     }
 
@@ -77,6 +74,7 @@ public class UserBuilderImpl implements UserBuilder {
         User user = new User();
         user.setPassword(DigestUtils.md5DigestAsHex(request.getPassword().getBytes()));
         user.setLogin(request.getLogin());
+        user.setPhoneNumber(request.getLogin());
         user.setCreatedAt(new Date());
         return user;
     }

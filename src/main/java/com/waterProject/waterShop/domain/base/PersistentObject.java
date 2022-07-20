@@ -13,6 +13,7 @@ import java.util.Date;
 @MappedSuperclass
 @FieldDefaults(level = AccessLevel.PROTECTED)
 public class PersistentObject {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;

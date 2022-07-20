@@ -8,15 +8,16 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CreateUserDto {
-    Integer cityId;
-    UserType userType;
+    UserType type;
     String fullName;
     String login;
     String password;
-    String email;
+//    String email;
     String phoneNumber;
+//    Long cityId;
+//    Long addressId;
 }
