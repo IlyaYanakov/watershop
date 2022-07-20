@@ -1,5 +1,8 @@
 package com.waterProject.waterShop.utils;
+<<<<<<< HEAD
 
+=======
+>>>>>>> day--19-07-22-Ilya
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.UnsupportedEncodingException;
@@ -10,6 +13,10 @@ import java.util.Arrays;
 import java.util.Base64;
 
 public class GenerateTokenHelper {
+<<<<<<< HEAD
+=======
+
+>>>>>>> day--19-07-22-Ilya
     private static final String SECRET = "test123";
     private static SecretKeySpec secretKey;
     private static byte[] key;
@@ -53,5 +60,8 @@ public class GenerateTokenHelper {
         }
         return null;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> day--19-07-22-Ilya
 }

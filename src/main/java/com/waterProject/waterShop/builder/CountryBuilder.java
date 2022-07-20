@@ -5,6 +5,7 @@ import com.waterProject.waterShop.dto.request.CreateCountryDto;
 import com.waterProject.waterShop.dto.response.CountryDto;
 
 public interface CountryBuilder {
+
     CountryDto build(Country country);
 
     Country build(CreateCountryDto request);

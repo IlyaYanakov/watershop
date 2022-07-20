@@ -2,6 +2,8 @@ package com.waterProject.waterShop.repository;
 
 import com.waterProject.waterShop.domain.Address;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface AddressesRepository extends JpaRepository<Address, Long> {
+@Repository
+public interface AddressRepository extends JpaRepository<Address, Long> {
 }

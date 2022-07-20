@@ -1,56 +1,71 @@
 package com.waterProject.waterShop.service.impl;
 
-import com.waterProject.waterShop.dto.request.CreateUserDto;
-import com.waterProject.waterShop.dto.response.RegistrationDto;
-import com.waterProject.waterShop.dto.response.SessionDto;
+import com.waterProject.waterShop.builder.UserBuilder;
+import com.waterProject.waterShop.domain.ApproveCode;
+import com.waterProject.waterShop.domain.User;
 import com.waterProject.waterShop.dto.response.UserDto;
+import com.waterProject.waterShop.repository.ApproveCodeRepository;
+import com.waterProject.waterShop.repository.UserRepository;
 import com.waterProject.waterShop.service.UserService;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+@Service
+@Scope(BeanDefinition.SCOPE_PROTOTYPE)
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
-    @Override
-    public SessionDto registration(String login, String password) {
-        return null;
-    }
+    UserRepository userRepository;
+    UserBuilder userBuilder;
+   // ApproveCodeRepository approveCodeRepository;
 
-    @Override
-    public UserDto registration(String fullName, String password, String email, int phoneNumber) {
-        return null;
-    }
-
-    @Override
-    public UserDto login(int phoneNumber, String email, String password) {
-        return null;
-    }
-
-    @Override
-    public boolean verify(long userId, long code) {
-        return false;
-    }
-
-    @Override
-    public Long createActivationCode(Long userId) {
-        return null;
-    }
-
-    @Override
-    public void create(RegistrationDto user) {
-
-    }
+//    @Override
+//    public String auth(RegistrationDto request) {
+//        Optional<User> userOpt = userRepository.findFirstByLogin(request.getLogin());
+//        if (userOpt.isEmpty() || !DigestUtils.md5DigestAsHex(request.getPassword().getBytes()).equals(userOpt.get().getPassword())){
+//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+//        }
+//        return tokenService.buildToken(userOpt.get().getId());
+//    }
+//
+//    @Override
+//    public Long getIdByToken(String token) {
+//        return tokenService.parseJwt(token);
+//    }
 
     @Override
     public List<UserDto> getAll() {
-        return null;
+        List<User> userList = userRepository.findAll();
+        List<UserDto> userDtoList = new ArrayList<>();
+        for(User item: userList){
+            userDtoList.add(userBuilder.build(item));
+        }
+        return userDtoList;
     }
 
-    @Override
-    public void update(Long id, CreateUserDto request) {
-
-    }
-
-    @Override
-    public void deleteById(Long id) {
-
-    }
+//    @Override
+//    public void deleteById(Long id) {
+//        Optional<User> userOpt = userRepository.findById(id);
+//        if (userOpt.isEmpty()) {
+//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+//        }
+//        Optional<ApproveCode> approveCodeOpt = approveCodeRepository.
+//                findFirstByNumber(userOpt.get().getPhoneNumber());
+//        if (approveCodeOpt.isEmpty()){
+//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+//        }
+//        approveCodeRepository.deleteById(approveCodeOpt.get().getId());
+//        userRepository.deleteById(id);
+//    }
 }
